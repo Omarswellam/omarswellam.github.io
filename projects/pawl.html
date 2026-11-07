@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ratchet pawl design search | Omar Swellam</title>
+<meta name="description" content="Research assistant: an automated Abaqus search over 3,000+ ratchet-pawl geometries for 3D-printed resin micro actuators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Omar Swellam</a>
+    <nav class="links" style="display:flex">
+      <a href="../index.html#projects">All projects</a>
+      <a class="btn small" href="../Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+<a class="back" href="../index.html#projects">&larr; All projects</a>
+<section class="p-hero">
+  <p class="kicker">Research Assistant, Micro Linear Actuators &middot; AUC &middot; 2026&ndash;</p>
+  <h1>Ratchet pawl design search</h1>
+  <p class="lead">A tiny 3D-printed resin pawl has to lock the actuator and survive the load. I automated the search: over 3,000 designs tested by FEA, and 20 that pass every check.</p>
+  <div class="facts"><span>Software <b>Abaqus + Python</b></span><span>Material <b>3D-printed resin</b></span><span>Designs tested <b>3,000+</b></span></div>
+</section>
+<div class="cover contain"><img src="../img/pawl_mises.jpg" alt="Abaqus von Mises stress in a ratchet pawl"></div>
+<section class="p-body">
+<h2>The problem</h2>
+<p>The lab builds small linear actuators driven by shape memory alloys (SMA), wires that shorten when heated. A ratchet and pawl holds the position between strokes. Printed in resin, the pawl is small and brittle, so it has to be stiff enough to lock and strong enough not to crack. Changing one dimension changes both.</p>
+
+<h2>The approach</h2>
+<ul>
+  <li><b>Geometry:</b> a curved pawl arm built from up to five arcs, plus the rack teeth. The variables are arm thickness, arc curvatures and lengths, end radius, root fillets, base size, tooth pitch (0.8&ndash;2.2 mm), tooth height and ramp angle.</li>
+  <li><b>Each design:</b> a Python script builds it in Abaqus (grey resin, E = 2,800 MPa, 4 mm thick), meshes it within the 1,000-node limit, and simulates locking forward, reverse and travel.</li>
+  <li><b>Checks:</b> resin tension &le; 20 MPa and compression &le; 40 MPa; the lock must hold 4.5 N even at the weakest print corner; push force &le; 1.5 N; no buckling; fits in 10 &times; 10 mm.</li>
+  <li><b>Search:</b> a surrogate model picks which designs to simulate next, then a stress-guided step refines the best ones.</li>
+</ul>
+
+<h2>Results</h2>
+<div class="kpis"><div><b>4,600+</b><span>designs simulated over six search runs</span></div><div><b>20</b><span>designs pass every check</span></div><div><b>2.22</b><span>safety factor of the best design</span></div><div><b>7 &times; 5 mm</b><span>size of the best design</span></div></div>
+<p>The first runs found nothing that passed. The spec was tight, and printed resin is weak. Shrinking the pawl and tightening the print tolerance to &plusmn;0.05 mm is what made 20 designs pass. The best one locks at all 8 worst-case print corners with a forward stress around 28 MPa.</p>
+</section>
+<nav class="next">
+  <a href="drone.html">&larr; Previous<b>Quadcopter modeling and control</b></a>
+  <a href="rov.html">Next &rarr;<b>Underwater robot (ROV)</b></a>
+</nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p>Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="../script.js"></script>
+</body>
+</html>

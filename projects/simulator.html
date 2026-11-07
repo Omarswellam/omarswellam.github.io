@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Force-feedback driving simulator | Omar Swellam</title>
+<meta name="description" content="MENG 4778 Microcontrollers and Mechatronics: a force-feedback steering wheel for a driving simulator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Omar Swellam</a>
+    <nav class="links" style="display:flex">
+      <a href="../index.html#projects">All projects</a>
+      <a class="btn small" href="../Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+<a class="back" href="../index.html#projects">&larr; All projects</a>
+<section class="p-hero">
+  <p class="kicker">MENG 4778 Microcontrollers &amp; Mechatronics &middot; Fall 2026</p>
+  <h1>Force-feedback driving simulator</h1>
+  <p class="lead">A steering wheel that pushes back like a real car: at least 2.5 Nm of force feedback from a DC motor, run by an Arduino.</p>
+  <div class="facts"><span>Team <b>5</b></span><span>Status <b>in progress</b></span><span>My part <b>CAM / CNC, assembly, electronics</b></span></div>
+</section>
+<div class="figs">
+  <figure><img src="../img/sim_cad.jpg" alt="CAD of the wheel base." loading="lazy"><figcaption>CAD of the wheel base.</figcaption></figure>
+  <figure><img src="../img/sim_cad2.jpg" alt="The drive: DC motor and 5:1 belt reduction." loading="lazy"><figcaption>The drive: DC motor and 5:1 belt reduction.</figcaption></figure>
+</div>
+<section class="p-body">
+<h2>How it works</h2>
+<ul>
+  <li>A DC motor drives the steering shaft through a 5:1 belt, so a small motor gives enough torque.</li>
+  <li>A 600-pulse encoder reads the wheel angle; an Arduino and motor driver set the torque.</li>
+  <li>The game sends the effects over USB: centering, damping and vibration.</li>
+</ul>
+
+<h2>My role</h2>
+<p>I did the CAM and CNC machining of the wheel's main frame. Next I'm helping with assembly and the electronics.</p>
+</section>
+<nav class="next">
+  <a href="rov.html">&larr; Previous<b>Underwater robot (ROV)</b></a>
+  <a href="launcher.html">Next &rarr;<b>Smart tennis ball launcher</b></a>
+</nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p>Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five-axis 3D printer (S5) | Omar Swellam</title>
+<meta name="description" content="Senior thesis: a five-axis 3D printer and the slicer that curves its layers for less support or more strength.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Omar Swellam</a>
+    <nav class="links" style="display:flex">
+      <a href="../index.html#projects">All projects</a>
+      <a class="btn small" href="../Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+<a class="back" href="../index.html#projects">&larr; All projects</a>
+<section class="p-hero">
+  <p class="kicker">Senior thesis &middot; 2026&ndash;2027</p>
+  <h1>Five-axis 3D printer (S5)</h1>
+  <p class="lead">A 3D printer whose bed tilts, and the software that curves each layer, so a part needs less support material or comes out stronger where it is pulled.</p>
+  <div class="facts"><span>Role <b>Thesis Coordinator</b></span><span>Team <b>5</b></span><span>Tools <b>Python, FEA, CuraEngine, RepRapFirmware</b></span></div>
+</section>
+<div class="pairs">
+<div class="pair">
+  <div class="ba">
+    <figure><img src="../img/s5_mushroom_flat.jpg" alt="Mushroom cap, flat layers" loading="lazy"><span class="tag l">Flat</span></figure>
+    <figure><img src="../img/s5_mushroom_s5.jpg" alt="Mushroom cap, S5 curved layers" loading="lazy"><span class="tag l">S5</span></figure>
+  </div>
+  <h3>Mushroom cap</h3><p>Flat: the underside of the cap (red) hangs out past 45&deg; and needs about 2.2 g of support. S5: the layers follow the cap, the overhang area drops from 724 to 1 mm&sup2;, and no support is printed.</p>
+</div>
+<div class="pair">
+  <div class="ba">
+    <figure><img src="../img/s5_capital_flat.jpg" alt="Column capital, flat layers" loading="lazy"><span class="tag l">Flat</span></figure>
+    <figure><img src="../img/s5_capital_s5.jpg" alt="Column capital, S5 curved layers" loading="lazy"><span class="tag l">S5</span></figure>
+  </div>
+  <h3>Column capital</h3><p>Flat: the flared top needs support all round. S5: the overhang area drops from 452 to 0 mm&sup2;, so it prints with no support at all.</p>
+</div>
+</div>
+<section class="p-body">
+<h2>The problem</h2>
+<p>A normal printer stacks flat layers. Anything that hangs out more than about 45&deg; has nothing under it, so the slicer adds support material that is printed and then thrown away. Flat layers are also weak in one direction: a part pulled across its layers breaks along them.</p>
+<p>A five-axis printer can tilt the part while it prints (our bed tilts up to 60&deg;), so the layers don't have to be flat. The hard part is the software: deciding how the layers should curve and making sure the nozzle never hits the part or the bed.</p>
+
+<h2>What the slicer does</h2>
+<p>Each part on the plate gets one of two modes:</p>
+<ul>
+  <li><b>Low support:</b> the layers curve around the overhangs, so less of the part hangs over air.</li>
+  <li><b>Strength:</b> a finite element analysis (FEA) of the part under its loads finds where it is pulled hardest, and the layers curve so the pull runs along them, not across.</li>
+</ul>
+<p>Then it checks every move for collisions with the tilted bed, fixes the ones it finds, and hands the curved layers to CuraEngine for the actual toolpaths. The printer runs RepRapFirmware 3.6.3 on a Duet 3, and I added the machine's five-axis kinematics to it, so the slicer and the printer use the same maths. Saving G-code refuses any file the printer would stop on, and lists the moves that would cause it.</p>
+
+<h2>Results: support</h2>
+<p>We compare S5 against normal flat slicing on a benchmark of 40 test parts, same print settings, same printer profile.</p>
+<div class="kpis"><div><b>&minus;35%</b><span>support material, 32.1 &rarr; 21.0 g over 40 parts</span></div><div><b>14</b><span>parts that need no support at all</span></div><div><b>&minus;57%</b><span>overhang area that needs support</span></div><div><b>0</b><span>collisions in the final toolpaths</span></div></div>
+<p>The parts that gained the most:</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Part</th><th class="num">Flat support (g)</th><th class="num">S5 support (g)</th></tr></thead>
+  <tbody>
+    <tr><td>Flared vase</td><td class="num">3.52</td><td class="num">0</td></tr>
+    <tr><td>Wide cone</td><td class="num">3.09</td><td class="num">0</td></tr>
+    <tr><td>Flat mushroom</td><td class="num">2.13</td><td class="num">0</td></tr>
+    <tr><td>Round mushroom cap</td><td class="num">1.44</td><td class="num">0</td></tr>
+    <tr><td>Big T</td><td class="num">1.34</td><td class="num">0</td></tr>
+    <tr><td>Flag cantilever</td><td class="num">0.98</td><td class="num">0</td></tr>
+    <tr><td>Goblet (45&deg; flare)</td><td class="num">0.93</td><td class="num">0</td></tr>
+    <tr><td>Spiral ramp tower</td><td class="num">0.87</td><td class="num">0.01</td></tr>
+    <tr><td>T shape</td><td class="num">0.70</td><td class="num">0</td></tr>
+    <tr><td>Tree branches</td><td class="num">0.53</td><td class="num">0</td></tr>
+  </tbody>
+</table></div>
+<p>Not every part improves. On a few (an umbrella, a shelf bracket) flat slicing still needs less support, and the 40-part totals above include them.</p>
+
+<h2>Results: strength</h2>
+<div class="pairs"><div class="pair">
+  <div class="ba">
+    <figure><img src="../img/s5_hook_flat.jpg" alt="Wall hook, flat layers" loading="lazy"><span class="tag l">Flat</span></figure>
+    <figure><img src="../img/s5_hook_s5.jpg" alt="Wall hook, S5 curved layers" loading="lazy"><span class="tag l">S5</span></figure>
+  </div>
+  <h3>Wall hook</h3><p>Flat layers (left) cross the hook's bend, its weakest point. In Strength mode (right) the layers follow the pull.</p>
+</div></div>
+<p>On 8 strength test parts, the stress pulling across the layers (the direction prints break in) went down on 7, by up to 56%.</p>
+
+<h2>My role</h2>
+<ul>
+  <li>Coordinate the team of five since September 2026: split the tasks, set the weekly priorities and keep the progress log.</li>
+  <li>Built the slicer and the firmware kinematics. I worked with several AI coding agents on a shared task board: they claim tasks and log results, and I review and test their work before it is accepted.</li>
+  <li>Used agentic AI to build a simple mass-spring-damper model of the printer that predicts its vibration in seconds; its loads feed the FEA checks of the critical brackets.</li>
+</ul>
+</section>
+<nav class="next">
+  <a href="cad.html">&larr; Previous<b>Personal CAD: F1 car, V10, GE90</b></a>
+  <a href="fem.html">Next &rarr;<b>Resolving a sharp corner in 1,000 nodes</b></a>
+</nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p>Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="../script.js"></script>
+</body>
+</html>

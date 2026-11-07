@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resolving a sharp corner in 1,000 nodes | Omar Swellam</title>
+<meta name="description" content="MENG 4553 Finite Element Methods: a three-tier submodel chain that resolves a sharp corner within a 1,000-node license, plus thermo-plastic necking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Omar Swellam</a>
+    <nav class="links" style="display:flex">
+      <a href="../index.html#projects">All projects</a>
+      <a class="btn small" href="../Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+<a class="back" href="../index.html#projects">&larr; All projects</a>
+<section class="p-hero">
+  <p class="kicker">MENG 4553 Finite Element Methods &middot; Fall 2026</p>
+  <h1>Resolving a sharp corner in 1,000 nodes</h1>
+  <p class="lead">Our Abaqus license only allows 1,000 nodes per model. So to see the stress at a sharp corner, I zoomed in three times, each model feeding the next.</p>
+  <div class="facts"><span>Software <b>Abaqus + Python</b></span><span>Load <b>10 kN</b></span><span>Status <b>final project in progress</b></span></div>
+</section>
+<div class="cover contain"><img src="../img/fem_1.jpg" alt="Von Mises stress in the three submodel tiers"></div>
+<section class="p-body">
+<h2>The problem</h2>
+<p>The part is a stepped plate under 10 kN, about 200 MPa away from the step. Where the two widths meet there is a sharp 270&deg; inside corner. In theory the stress there is infinite (the Williams singularity), so it keeps rising as the mesh gets finer. The question is what number you can honestly report, when the free Learning Edition caps every model at 1,000 nodes.</p>
+
+<h2>The approach: three tiers</h2>
+<ul>
+  <li><b>Tier 1</b> models the whole plate coarsely (915 nodes).</li>
+  <li><b>Tier 2</b> cuts out the region round the corner and takes its edge displacements from tier 1 (996 nodes).</li>
+  <li><b>Tier 3</b> zooms in again on the corner itself (996 nodes).</li>
+</ul>
+<p>Each model stays under the limit, but together they reach a mesh far finer than one 1,000-node model could.</p>
+<figure><img src="../img/fem_4.jpg" alt="The three meshes at true scale: each tier zooms into the corner of the one before." loading="lazy"><figcaption>The three meshes at true scale: each tier zooms into the corner of the one before.</figcaption></figure>
+
+<h2>Results</h2>
+<div class="kpis"><div><b>436</b><span>MPa, tier 1 peak</span></div><div><b>1,155</b><span>MPa, tier 2 peak</span></div><div><b>1,555</b><span>MPa, tier 3 peak</span></div><div><b>2,057</b><span>MPa, extrapolated</span></div></div>
+<p>I checked mesh convergence with Richardson extrapolation, as set out in ASME V&amp;V 10. The extrapolated peak is 2,057 MPa, but the grid convergence index (GCI) is 40%. That doesn't mean the models are wrong. It is what a singular corner should do: the stress never settles. The useful conclusion is that you can't design to the peak at a sharp corner. You add a fillet, or you judge the part on the stress a short distance away.</p>
+<figure><img src="../img/fem_2.jpg" alt="Peak stress against mesh size: it keeps climbing, as a singularity should." loading="lazy"><figcaption>Peak stress against mesh size: it keeps climbing, as a singularity should.</figcaption></figure>
+<figure><img src="../img/fem_3.jpg" alt="The extrapolated stress field, mapped back onto the mesh with an Abaqus Python script." loading="lazy"><figcaption>The extrapolated stress field, mapped back onto the mesh with an Abaqus Python script.</figcaption></figure>
+
+<h2>Lab: thermo-plastic necking</h2>
+<p>A notched bar pulled until it necks, once slowly and once fast. Plastic work turns into heat, and how hot the neck gets depends on how fast you pull, because the heat has less time to escape.</p>
+<div class="kpis"><div><b>20.0 &deg;C</b><span>peak temperature, slow pull</span></div><div><b>444.5 &deg;C</b><span>fast pull</span></div><div><b>607 &deg;C</b><span>adiabatic (no heat escapes)</span></div><div><b>6.78 kN</b><span>peak force</span></div></div>
+<div class="figs">
+  <figure><img src="../img/fem_5.jpg" alt="Notched bar: mesh, plastic strain and temperature at the neck." loading="lazy"><figcaption>Notched bar: mesh, plastic strain and temperature at the neck.</figcaption></figure>
+  <figure><img src="../img/fem_6.jpg" alt="Peak temperature against displacement." loading="lazy"><figcaption>Peak temperature against displacement.</figcaption></figure>
+</div>
+
+<h2>Final project (in progress)</h2>
+<p>A notched shaft followed end to end in Abaqus: from manufacturing through to service loads, with plasticity, damage and thermal effects. The submodeling method above is how it gets enough detail at the notch.</p>
+</section>
+<nav class="next">
+  <a href="s5.html">&larr; Previous<b>Five-axis 3D printer (S5)</b></a>
+  <a href="drone.html">Next &rarr;<b>Quadcopter modeling and control</b></a>
+</nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p>Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="../script.js"></script>
+</body>
+</html>

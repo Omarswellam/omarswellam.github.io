@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quadcopter modeling and control | Omar Swellam</title>
+<meta name="description" content="MENG 3705 System Dynamics: nonlinear quadcopter model and cascaded PID control in MATLAB/Simulink.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Omar Swellam</a>
+    <nav class="links" style="display:flex">
+      <a href="../index.html#projects">All projects</a>
+      <a class="btn small" href="../Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+<a class="back" href="../index.html#projects">&larr; All projects</a>
+<section class="p-hero">
+  <p class="kicker">MENG 3705 System Dynamics &middot; Fall 2025</p>
+  <h1>Quadcopter modeling and control</h1>
+  <p class="lead">We modeled a quadcopter from first principles, showed that without control it is unstable, then designed a controller that flies it along a 3D spiral.</p>
+  <div class="facts"><span>Role <b>Project Coordinator</b></span><span>Team <b>5</b></span><span>Tools <b>MATLAB, Simulink</b></span></div>
+</section>
+<div class="cover contain"><img src="../img/drone_2.jpg" alt="Spiral trajectory: reference vs actual, 3D, top and side views"></div>
+<section class="p-body">
+<h2>The model</h2>
+<p>A 1.2 kg quadcopter with 0.23 m arms. We derived its nonlinear equations of motion with Newtonian mechanics (thrust, drag, and an offset centre of gravity), then linearised them about hover. The state-space model is controllable and observable, and open loop it is unstable, so it can't fly without a controller.</p>
+
+<h2>The controller</h2>
+<p>A cascaded PID: an outer loop turns position errors in X, Y and Z into the roll and pitch angles and thrust needed; an inner loop holds those angles. I added angle and input limits with anti-windup, and the motor dynamics.</p>
+<figure><img src="../img/drone_1.jpg" alt="The full Simulink model: outer loop, inner loop, motor dynamics and the plant." loading="lazy"><figcaption>The full Simulink model: outer loop, inner loop, motor dynamics and the plant.</figcaption></figure>
+<figure><img src="../img/drone_5.jpg" alt="Inside the outer loop: three PIDs turn position errors into pitch, roll and thrust commands." loading="lazy"><figcaption>Inside the outer loop: three PIDs turn position errors into pitch, roll and thrust commands.</figcaption></figure>
+
+<h2>Results</h2>
+<p>Every axis follows a unit step with under 10% overshoot and stays stable:</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Axis</th><th class="num">Rise (s)</th><th class="num">Settling (s)</th><th class="num">Overshoot</th></tr></thead>
+  <tbody>
+    <tr><td>X</td><td class="num">1.26</td><td class="num">6.26</td><td class="num">8.5%</td></tr>
+    <tr><td>Y</td><td class="num">1.20</td><td class="num">5.69</td><td class="num">9.0%</td></tr>
+    <tr><td>Z (altitude)</td><td class="num">0.76</td><td class="num">3.00</td><td class="num">5.9%</td></tr>
+    <tr><td>Yaw</td><td class="num">1.16</td><td class="num">3.65</td><td class="num">~0%</td></tr>
+    <tr><td>Pitch</td><td class="num">0.68</td><td class="num">2.85</td><td class="num">7.4%</td></tr>
+    <tr><td>Roll</td><td class="num">0.77</td><td class="num">3.23</td><td class="num">~0%</td></tr>
+  </tbody>
+</table></div>
+<p>Steps in X, Y and Z at the same time behave almost exactly like separate ones, so the axes are well decoupled. On the spiral it drifts wide on the first loop, then tracks the reference closely.</p>
+<figure><img src="../img/drone_3.jpg" alt="Unit steps in X, Y, Z and yaw, with MATLAB's step metrics." loading="lazy"><figcaption>Unit steps in X, Y, Z and yaw, with MATLAB's step metrics.</figcaption></figure>
+
+<h2>What if the centre of gravity moves?</h2>
+<p>We swept the centre of gravity &plusmn;0.3 m in X and Y: 61 &times; 61 = 3,721 cases. The matrix that splits commands between the four rotors stayed well-conditioned in every one (condition number about 10 to 10.8, none ill-conditioned). Performance does get worse at large offsets, and at the extremes the drone goes partly unstable. The gains were tuned by hand, so there is room to optimise them.</p>
+<figure><img src="../img/drone_4.jpg" alt="Condition number of the rotor-mixing matrix across the centre-of-gravity sweep." loading="lazy"><figcaption>Condition number of the rotor-mixing matrix across the centre-of-gravity sweep.</figcaption></figure>
+
+<h2>My role</h2>
+<p>Project coordinator for the team of five. I updated the mathematical model and built the MATLAB and Simulink simulation.</p>
+</section>
+<nav class="next">
+  <a href="fem.html">&larr; Previous<b>Resolving a sharp corner in 1,000 nodes</b></a>
+  <a href="pawl.html">Next &rarr;<b>Ratchet pawl design search</b></a>
+</nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p>Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="../script.js"></script>
+</body>
+</html>

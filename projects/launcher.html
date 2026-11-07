@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart tennis ball launcher | Omar Swellam</title>
+<meta name="description" content="MENG 4779 Electromechanical Systems: a 3D-printed counter-rotating tennis ball launcher with PLC control.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Omar Swellam</a>
+    <nav class="links" style="display:flex">
+      <a href="../index.html#projects">All projects</a>
+      <a class="btn small" href="../Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+<a class="back" href="../index.html#projects">&larr; All projects</a>
+<section class="p-hero">
+  <p class="kicker">MENG 4779 Electromechanical Systems &middot; Spring 2026</p>
+  <h1>Smart tennis ball launcher</h1>
+  <p class="lead">A tennis ball launcher we designed, printed, wired and programmed: two wheels spinning in opposite directions fire the ball, and a PLC runs it.</p>
+  <div class="facts"><span>Role <b>Project Coordinator</b></span><span>Team <b>5</b></span><span>Tools <b>SolidWorks, RSLogix</b></span></div>
+</section>
+<div class="cover"><img src="../img/launcher.jpg" alt="The printed launcher with its electronics"></div>
+<section class="p-body">
+<h2>Design</h2>
+<p>Two wheels spin in opposite directions and grip the ball between them, so it leaves at the wheels' surface speed. I led the mechanical hardware: designed in SolidWorks and 3D printed.</p>
+
+<h2>Control</h2>
+<p>PLC ladder logic, written and verified in RSLogix:</p>
+<ul>
+  <li>start and stop,</li>
+  <li>a timed auto-shutdown,</li>
+  <li>a counter for the balls fired.</li>
+</ul>
+</section>
+<nav class="next">
+  <a href="simulator.html">&larr; Previous<b>Force-feedback driving simulator</b></a>
+  <a href="cad.html">Next &rarr;<b>Personal CAD: F1 car, V10, GE90</b></a>
+</nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p>Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="../script.js"></script>
+</body>
+</html>
