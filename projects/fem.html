@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Resolving a sharp corner in 1,000 nodes | Omar Swellam</title>
-<meta name="description" content="MENG 4553 Finite Element Methods: a three-tier submodel chain that resolves a sharp corner within a 1,000-node license, plus thermo-plastic necking.">
+<title>Finite element analysis (Abaqus) | Omar Swellam</title>
+<meta name="description" content="MENG 4553 Finite Element Methods in Abaqus: a three-tier submodel chain that resolves a sharp corner within a 1,000-node license, plus thermo-plastic necking.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,13 +26,13 @@
 <a class="back" href="../index.html#projects">&larr; All projects</a>
 <section class="p-hero">
   <p class="kicker">MENG 4553 Finite Element Methods &middot; Fall 2026</p>
-  <h1>Resolving a sharp corner in 1,000 nodes</h1>
-  <p class="lead">Our Abaqus license only allows 1,000 nodes per model. So to see the stress at a sharp corner, I zoomed in three times, each model feeding the next.</p>
+  <h1>Finite element analysis (Abaqus)</h1>
+  <p class="lead">Finite element work in Abaqus for MENG 4553: a sharp-corner submodel study, a thermo-plastic necking lab and a final project. The highlight: our license only allows 1,000 nodes per model, so to see the stress at a sharp corner I zoomed in three times, each model feeding the next.</p>
   <div class="facts"><span>Software <b>Abaqus + Python</b></span><span>Load <b>10 kN</b></span><span>Status <b>final project in progress</b></span></div>
 </section>
 <div class="cover contain"><img src="../img/fem_1.jpg" alt="Von Mises stress in the three submodel tiers"></div>
 <section class="p-body">
-<h2>The problem</h2>
+<h2>Highlight: a sharp corner in 1,000 nodes</h2>
 <p>The part is a stepped plate under 10 kN, about 200 MPa away from the step. Where the two widths meet there is a sharp 270&deg; inside corner. In theory the stress there is infinite (the Williams singularity), so it keeps rising as the mesh gets finer. The question is what number you can honestly report, when the free Learning Edition caps every model at 1,000 nodes.</p>
 
 <h2>The approach: three tiers</h2>

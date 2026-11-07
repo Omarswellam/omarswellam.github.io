@@ -11,7 +11,7 @@ EMAIL = "Omar-swellam@aucegypt.edu"
 ORDER = ["s5", "fem", "drone", "pawl", "rov", "simulator", "launcher", "cad"]
 TITLES = {
     "s5": "Five-axis 3D printer (S5)",
-    "fem": "Resolving a sharp corner in 1,000 nodes",
+    "fem": "Finite element analysis (Abaqus)",
     "drone": "Quadcopter modeling and control",
     "pawl": "Ratchet pawl design search",
     "rov": "Underwater robot (ROV)",
@@ -112,11 +112,12 @@ page("s5", "Senior thesis: a five-axis 3D printer and the slicer that curves its
 {ba("capital", "Column capital", "Flat: the flared top needs support all round. S5: the overhang area drops from 452 to 0 mm&sup2;, so it prints with no support at all.")}
 </div>
 <section class="p-body">
-<h2>The problem</h2>
-<p>A normal printer stacks flat layers. Anything that hangs out more than about 45&deg; has nothing under it, so the slicer adds support material that is printed and then thrown away. Flat layers are also weak in one direction: a part pulled across its layers breaks along them.</p>
-<p>A five-axis printer can tilt the part while it prints (our bed tilts up to 60&deg;), so the layers don't have to be flat. The hard part is the software: deciding how the layers should curve and making sure the nozzle never hits the part or the bed.</p>
+<h2>What it is</h2>
+<p>My senior thesis: a five-axis 3D printer, built by a team of five, and the slicer that drives it. A normal printer stacks flat layers. Anything that hangs out more than about 45&deg; has nothing under it, so the slicer adds support material that is printed and then thrown away. Flat layers are also weak in one direction: a part pulled across its layers breaks along them.</p>
+<p>A five-axis printer can tilt the part while it prints (our bed tilts up to 45&deg;), so the layers don't have to be flat. The hard part is the software: deciding how the layers should curve and making sure the nozzle never hits the part or the bed.</p>
+{fig("s5_print.webp", "A coil (a small spring) printed in S5&rsquo;s Machine view: the bed tilts and moves on its three poles while the nozzle lays the curved layers. This is the slicer&rsquo;s simulation; the printer itself is not built yet.", "Animation of the S5 printer&rsquo;s bed tilting while it prints a coil")}
 
-<h2>What the slicer does</h2>
+<h2>What we built</h2>
 <p>Each part on the plate gets one of two modes:</p>
 <ul>
   <li><b>Low support:</b> the layers curve around the overhangs, so less of the part hangs over air.</li>
@@ -149,7 +150,8 @@ page("s5", "Senior thesis: a five-axis 3D printer and the slicer that curves its
 <div class="pairs">{ba("hook", "Wall hook", "Flat layers (left) cross the hook's bend, its weakest point. In Strength mode (right) the layers follow the pull.")}</div>
 <p>On 8 strength test parts, the stress pulling across the layers (the direction prints break in) went down on 7, by up to 56%.</p>
 
-<h2>My role</h2>
+<h2>What I did</h2>
+<p>We split the thesis by who is most interested in, and best at, each part. Mine:</p>
 <ul>
   <li>Coordinate the team of five since September 2026: split the tasks, set the weekly priorities and keep the progress log.</li>
   <li>Built the slicer and the firmware kinematics. I worked with several AI coding agents on a shared task board: they claim tasks and log results, and I review and test their work before it is accepted.</li>
@@ -159,13 +161,13 @@ page("s5", "Senior thesis: a five-axis 3D printer and the slicer that curves its
 """)
 
 # ------------------------------------------------------------------ FEM
-page("fem", "MENG 4553 Finite Element Methods: a three-tier submodel chain that resolves a sharp corner within a 1,000-node license, plus thermo-plastic necking.", f"""
+page("fem", "MENG 4553 Finite Element Methods in Abaqus: a three-tier submodel chain that resolves a sharp corner within a 1,000-node license, plus thermo-plastic necking.", f"""
 {hero("MENG 4553 Finite Element Methods &middot; Fall 2026", TITLES["fem"],
-      "Our Abaqus license only allows 1,000 nodes per model. So to see the stress at a sharp corner, I zoomed in three times, each model feeding the next.",
+      "Finite element work in Abaqus for MENG 4553: a sharp-corner submodel study, a thermo-plastic necking lab and a final project. The highlight: our license only allows 1,000 nodes per model, so to see the stress at a sharp corner I zoomed in three times, each model feeding the next.",
       [("Software", "Abaqus + Python"), ("Load", "10 kN"), ("Status", "final project in progress")])}
 <div class="cover contain"><img src="../img/fem_1.jpg" alt="Von Mises stress in the three submodel tiers"></div>
 <section class="p-body">
-<h2>The problem</h2>
+<h2>Highlight: a sharp corner in 1,000 nodes</h2>
 <p>The part is a stepped plate under 10 kN, about 200 MPa away from the step. Where the two widths meet there is a sharp 270&deg; inside corner. In theory the stress there is infinite (the Williams singularity), so it keeps rising as the mesh gets finer. The question is what number you can honestly report, when the free Learning Edition caps every model at 1,000 nodes.</p>
 
 <h2>The approach: three tiers</h2>
@@ -203,10 +205,13 @@ page("drone", "MENG 3705 System Dynamics: nonlinear quadcopter model and cascade
       [("Role", "Project Coordinator"), ("Team", "5"), ("Tools", "MATLAB, Simulink")])}
 <div class="cover contain"><img src="../img/drone_2.jpg" alt="Spiral trajectory: reference vs actual, 3D, top and side views"></div>
 <section class="p-body">
-<h2>The model</h2>
+<h2>What it is</h2>
+<p>The group project for MENG 3705 System Dynamics: model a real system from first principles, then control it. The course is about the method, not the system, so our group of five picked a quadcopter.</p>
+
+<h2>What we built: the model</h2>
 <p>A 1.2 kg quadcopter with 0.23 m arms. We derived its nonlinear equations of motion with Newtonian mechanics (thrust, drag, and an offset centre of gravity), then linearised them about hover. The state-space model is controllable and observable, and open loop it is unstable, so it can't fly without a controller.</p>
 
-<h2>The controller</h2>
+<h2>What we built: the controller</h2>
 <p>A cascaded PID: an outer loop turns position errors in X, Y and Z into the roll and pitch angles and thrust needed; an inner loop holds those angles. I added angle and input limits with anti-windup, and the motor dynamics.</p>
 {fig("drone_1.jpg", "The full Simulink model: outer loop, inner loop, motor dynamics and the plant.")}
 {fig("drone_5.jpg", "Inside the outer loop: three PIDs turn position errors into pitch, roll and thrust commands.")}
@@ -231,8 +236,8 @@ page("drone", "MENG 3705 System Dynamics: nonlinear quadcopter model and cascade
 <p>We swept the centre of gravity &plusmn;0.3 m in X and Y: 61 &times; 61 = 3,721 cases. The matrix that splits commands between the four rotors stayed well-conditioned in every one (condition number about 10 to 10.8, none ill-conditioned). Performance does get worse at large offsets, and at the extremes the drone goes partly unstable. The gains were tuned by hand, so there is room to optimise them.</p>
 {fig("drone_4.jpg", "Condition number of the rotor-mixing matrix across the centre-of-gravity sweep.")}
 
-<h2>My role</h2>
-<p>Project coordinator for the team of five. I updated the mathematical model and built the MATLAB and Simulink simulation.</p>
+<h2>What I did</h2>
+<p>We split the work by who was most interested in, and best at, each part. I was the project coordinator, and I built the drone's mathematical model and the Simulink simulation.</p>
 </section>
 """)
 
@@ -243,10 +248,10 @@ page("pawl", "Research assistant: an automated Abaqus search over 3,000+ ratchet
       [("Software", "Abaqus + Python"), ("Material", "3D-printed resin"), ("Designs tested", "3,000+")])}
 <div class="cover contain"><img src="../img/pawl_mises.jpg" alt="Abaqus von Mises stress in a ratchet pawl"></div>
 <section class="p-body">
-<h2>The problem</h2>
-<p>The lab builds small linear actuators driven by shape memory alloys (SMA), wires that shorten when heated. A ratchet and pawl holds the position between strokes. Printed in resin, the pawl is small and brittle, so it has to be stiff enough to lock and strong enough not to crack. Changing one dimension changes both.</p>
+<h2>What it is</h2>
+<p>The research project builds small linear actuators driven by shape memory alloys (SMA), wires that shorten when heated. A ratchet and pawl holds the position between strokes. Printed in resin, the pawl is small and brittle, so it has to be stiff enough to lock and strong enough not to crack. Changing one dimension changes both.</p>
 
-<h2>The approach</h2>
+<h2>What we built: an automated design search</h2>
 <ul>
   <li><b>Geometry:</b> a curved pawl arm built from up to five arcs, plus the rack teeth. The variables are arm thickness, arc curvatures and lengths, end radius, root fillets, base size, tooth pitch (0.8&ndash;2.2 mm), tooth height and ramp angle.</li>
   <li><b>Each design:</b> a Python script builds it in Abaqus (grey resin, E = 2,800 MPa, 4 mm thick), meshes it within the 1,000-node limit, and simulates locking forward, reverse and travel.</li>
@@ -256,21 +261,27 @@ page("pawl", "Research assistant: an automated Abaqus search over 3,000+ ratchet
 
 <h2>Results</h2>
 {kpis(("4,600+", "designs simulated over six search runs"), ("20", "designs pass every check"), ("2.22", "safety factor of the best design"), ("7 &times; 5 mm", "size of the best design"))}
-<p>The first runs found nothing that passed. The spec was tight, and printed resin is weak. Shrinking the pawl and tightening the print tolerance to &plusmn;0.05 mm is what made 20 designs pass. The best one locks at all 8 worst-case print corners with a forward stress around 28 MPa.</p>
+
+<h2>What I did</h2>
+<p>I am a research assistant on the project. I wrote the Python pipeline that builds, meshes and checks each pawl design in Abaqus, set up the search, and ran it.</p>
 </section>
 """)
 
 # ------------------------------------------------------------------ ROV
 page("rov", "AUC Aquavaders: mechanical team lead for an underwater robot in the MATE ROV competition.", f"""
 {hero("AUC Aquavaders &middot; MATE ROV Competition", TITLES["rov"],
-      "An underwater robot built by students for the MATE competition. I joined the mechanical team in 2025 and have led it since June 2026.",
-      [("Role", "Mechanical Team Lead"), ("Since", "June 2025"), ("Tools", "SolidWorks, ANSYS CFD and FEA")])}
+      "An underwater robot built by students for the MATE ROV competition. We have placed 4th two years running. I joined the mechanical team in 2025 and have led it since June 2026.",
+      [("Role", "Mechanical Team Lead"), ("Class", "MATE Pioneer"), ("Result", "4th in 2025 and 2026")])}
 <div class="figs">
   {fig("rov_team.jpg", "The team with our ROV at the competition.")}
   {fig("rov_poster.jpg", "AUC Aquavaders at the Arab Academy.")}
 </div>
 <section class="p-body">
-<h2>What the mechanical team does</h2>
+<h2>What it is</h2>
+<p>AUC Aquavaders is a student team that has competed in the MATE ROV competition since 2025. Each year MATE sets a list of underwater mission tasks, scored in a timed pool run, plus a technical report and a presentation; in 2025 they were about shipwrecks, marine renewable energy and vertical profiling floats. We compete in the Pioneer class, the second-highest of MATE's five classes, and placed 4th in both 2025 and 2026.</p>
+
+<h2>What we built</h2>
+<p>The robot is split between mechanical, electronics and software teams. The mechanical side covers:</p>
 <ul>
   <li><b>Propulsion:</b> where the thrusters go and how they point, so the robot can move and turn in every direction.</li>
   <li><b>Buoyancy and stability:</b> placing the components so the robot floats level and stays steady.</li>
@@ -278,7 +289,7 @@ page("rov", "AUC Aquavaders: mechanical team lead for an underwater robot in the
   <li>Fabrication, 3D printing and pool testing.</li>
 </ul>
 
-<h2>My role</h2>
+<h2>What I did</h2>
 <p>In my first year I designed the propulsion and buoyancy layout and ran the CFD. As team lead, I split the work, manage the timeline, and coordinate with the software and electronics teams, so that the mechanics, wiring and controls fit together.</p>
 </section>
 """)
@@ -286,21 +297,24 @@ page("rov", "AUC Aquavaders: mechanical team lead for an underwater robot in the
 # ------------------------------------------------------------------ simulator
 page("simulator", "MENG 4778 Microcontrollers and Mechatronics: a force-feedback steering wheel for a driving simulator.", f"""
 {hero("MENG 4778 Microcontrollers &amp; Mechatronics &middot; Fall 2026", TITLES["simulator"],
-      "A steering wheel that pushes back like a real car: at least 2.5 Nm of force feedback from a DC motor, run by an Arduino.",
+      "I race in a sim league with friends, and a wheel that pushes back like a real car makes it feel like driving. So for our mechatronics project we are building one: at least 2.5 Nm of force feedback from a DC motor, run by an Arduino.",
       [("Team", "5"), ("Status", "in progress"), ("My part", "CAM / CNC, assembly, electronics")])}
 <div class="figs">
   {fig("sim_cad.jpg", "CAD of the wheel base.")}
   {fig("sim_cad2.jpg", "The drive: DC motor and 5:1 belt reduction.")}
 </div>
 <section class="p-body">
-<h2>How it works</h2>
+<h2>What it is</h2>
+<p>The group project for MENG 4778 Microcontrollers and Mechatronics. I race in a sim league with friends, and a wheel without force feedback feels dead: you can't feel the grip go. So our group of five is building one that pushes back.</p>
+
+<h2>What we're building</h2>
 <ul>
   <li>A DC motor drives the steering shaft through a 5:1 belt, so a small motor gives enough torque.</li>
   <li>A 600-pulse encoder reads the wheel angle; an Arduino and motor driver set the torque.</li>
   <li>The game sends the effects over USB: centering, damping and vibration.</li>
 </ul>
 
-<h2>My role</h2>
+<h2>What I'm doing</h2>
 <p>I did the CAM and CNC machining of the wheel's main frame. Next I'm helping with assembly and the electronics.</p>
 </section>
 """)
@@ -312,16 +326,20 @@ page("launcher", "MENG 4779 Electromechanical Systems: a 3D-printed counter-rota
       [("Role", "Project Coordinator"), ("Team", "5"), ("Tools", "SolidWorks, RSLogix")])}
 <div class="cover"><img src="../img/launcher.jpg" alt="The printed launcher with its electronics"></div>
 <section class="p-body">
-<h2>Design</h2>
-<p>Two wheels spin in opposite directions and grip the ball between them, so it leaves at the wheels' surface speed. I led the mechanical hardware: designed in SolidWorks and 3D printed.</p>
+<h2>What it is</h2>
+<p>The group project for MENG 4779 Electromechanical Systems: build a working machine that combines mechanics, motors and PLC control. Our group of five built a tennis ball launcher.</p>
 
-<h2>Control</h2>
-<p>PLC ladder logic, written and verified in RSLogix:</p>
+<h2>What we built</h2>
+<p>Two wheels spin in opposite directions and grip the ball between them, so it leaves at the wheels' surface speed. The parts were designed in SolidWorks and 3D printed.</p>
+<p>It is controlled by PLC ladder logic, written and verified in RSLogix:</p>
 <ul>
   <li>start and stop,</li>
   <li>a timed auto-shutdown,</li>
   <li>a counter for the balls fired.</li>
 </ul>
+
+<h2>What I did</h2>
+<p>We split the work by who was most interested in, and best at, each part. I was the project coordinator, did the CAD of the launcher, and wrote the PLC ladder logic.</p>
 </section>
 """)
 
@@ -332,22 +350,25 @@ def gallery(pics):
 
 page("cad", "Personal Fusion 360 projects: a Formula 1 car, a V10 hybrid engine and a GE90 jet engine.", f"""
 {hero("Personal projects &middot; Fusion 360 &middot; 2024&ndash;2025", TITLES["cad"],
-      "I taught myself Fusion 360 to model an F1 car, and it went from there: an engine for it, and then a jet engine.",
-      [("Hours", "100+ on the car alone"), ("Tool", "Fusion 360"), ("Self-taught", "yes")])}
+      "I wanted to learn CAD, and it is easier to keep going when you are building something you enjoy. So I taught myself Fusion 360 on an F1 car, and it went from there: an engine for it, and then a jet engine.",
+      [("Hours", "50+ on the car alone"), ("Tool", "Fusion 360"), ("Self-taught", "yes")])}
 <section class="p-body">
 <h2 id="f1">Formula 1 car</h2>
 <p class="tile-meta">January&ndash;May 2024</p>
-<p>Modeled from scratch over 20 versions and 100+ hours: diffusers, Venturi tunnels, multi-element wings and suspension.</p>
+<p><b>Why:</b> I wanted to learn CAD properly, and an F1 car was the obvious thing to learn it on, since it is what I enjoy most.</p>
+<p><b>What is modelled:</b> the whole car, from scratch, over 20 versions and 50+ hours: diffusers, Venturi tunnels, multi-element wings and suspension.</p>
 {gallery([("f1car_side2.jpg", "Side"), ("f1car_front.jpg", "Front"), ("f1car_top.jpg", "Top"), ("f1car_nose.jpg", "Nose and cockpit")])}
 
 <h2 id="v10">F1 V10 hybrid engine</h2>
 <p class="tile-meta">July&ndash;November 2024</p>
-<p>A naturally aspirated V10 with an MGU-K, as my answer to the 2026 rules: over 1,000 components, about 20,000 RPM and about 950 hp as a concept. Joints simulate the engine's motion.</p>
-{gallery([("v10_car.jpg", "The engine in the car"), ("v10_block.jpg", "Pistons and gears"), ("v10_mguk.jpg", "MGU-K motor"), ("v10_top.jpg", "From above")])}
+<p><b>Why:</b> I was disappointed by the 2026 engine rules, so I drew the engine I would have liked instead, as a concept.</p>
+<p><b>What is modelled:</b> a naturally aspirated V10 with an MGU-K hybrid motor, over 1,000 components, aimed at about 20,000 RPM and about 950 hp. Joints in Fusion 360 simulate the engine's motion.</p>
+{gallery([("v10_car.jpg", "The engine in the car"), ("v10_block.jpg", "Pistons and gears"), ("v10_mguk.jpg", "MGU-K motor"), ("v10_front.jpg", "Front")])}
 
 <h2 id="ge90">GE90 jet engine</h2>
 <p class="tile-meta">December 2024&ndash;January 2025</p>
-<p>The Boeing 777's engine, from fan to nozzle: the multi-stage compressor and turbine, the bypass ratio and the combustor.</p>
+<p><b>Why:</b> I'm a bit of an aviation geek, and the GE90 is just a really cool engine.</p>
+<p><b>What is modelled:</b> the Boeing 777's engine, from fan to nozzle: the multi-stage compressor and turbine, the bypass ratio and the combustor.</p>
 {gallery([("ge90_section.jpg", "Section"), ("ge90_nacelle.jpg", "Nacelle and fan"), ("ge90_core.jpg", "Core"), ("ge90_cutaway.jpg", "Cutaway")])}
 </section>
 """)

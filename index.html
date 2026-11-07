@@ -17,10 +17,9 @@
     <a class="brand" href="#top">Omar Swellam</a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="links">
-      <a href="#projects">Projects</a>
       <a href="#about">About</a>
+      <a href="#projects">Projects</a>
       <a href="#economics">Economics</a>
-      <a href="#how">How I work</a>
       <a class="btn small" href="Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
     </nav>
   </div>
@@ -47,12 +46,36 @@
     <div class="stats">
       <div><b>&minus;35%</b><span>support material on a 40-part benchmark, from my thesis slicer</span></div>
       <div><b>3,000+</b><span>ratchet-pawl designs tested automatically in Abaqus</span></div>
-      <div><b>&lt;1,000</b><span>nodes per model to resolve a sharp corner, by chaining three submodels</span></div>
+      <div><b>4th</b><span>two years running in the MATE ROV competition, where I lead the mechanical team</span></div>
     </div>
   </div>
 </section>
 
-<section id="projects" class="section soft">
+<section id="about" class="section soft">
+  <div class="wrap about">
+    <div>
+      <p class="kicker">About</p>
+      <h2>A bit about me</h2>
+      <p>I'm Omar, a senior mechanical engineering student at AUC, graduating in May 2027, with a minor in economics.</p>
+      <p>Honestly, a lot of it started with cars. I wanted to know how an F1 car actually works, so I taught myself Fusion 360 and modeled one, and then, well, it needed an engine. That's pretty much how I still work: pick something I'm curious about and build it until I understand it.</p>
+      <p>These days most of my time goes into my thesis, a five-axis 3D printer, where I coordinate a team of five. Every two weeks each of us hands in a log; I set the priorities and split the tasks, and a small script reminds everyone three days before it is due. A lot of the work is software, so I use AI agents a lot, and I treat them like a team too: clear tasks, written logs, and I check what they hand back before I trust it.</p>
+      <p>The economics side is the other half. I like asking whether a policy actually works, and I try not to put a number in front of anyone that I can't back up.</p>
+      <div class="interests">
+        <div class="interest"><b>F1 and sim racing</b><span>I race in a league with friends.</span></div>
+        <div class="interest"><b>Football</b><span>Premier League, Champions League, every tournament, and I play when I can.</span></div>
+        <div class="interest"><b>Aviation</b><span>A bit of a geek, which is why I modeled the GE90.</span></div>
+        <div class="interest"><b>Also</b><span>The gym, gaming and the occasional hike.</span></div>
+      </div>
+    </div>
+    <div class="photos">
+      <img src="img/f1.jpg" alt="Omar at an F1 show car in a Grand Prix fan zone" loading="lazy">
+      <img src="img/hike.jpg" alt="Omar on a mountain hike with friends" loading="lazy">
+      <img class="wide" src="img/egypt_wc.jpg" alt="Omar with friends celebrating Egypt's World Cup win over New Zealand" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
   <div class="wrap">
     <div class="section-head">
       <div><p class="kicker">Work</p><h2>Projects</h2></div>
@@ -80,8 +103,8 @@
         <div class="tile-img fit"><img src="img/fem_1.jpg" alt="Von Mises stress in the three submodel tiers" loading="lazy"></div>
         <div class="tile-body">
           <p class="tile-meta">MENG 4553 Finite Elements &middot; Fall 2026</p>
-          <h3>A sharp corner in 1,000 nodes</h3>
-          <p>Three chained Abaqus submodels, Richardson extrapolation, and thermo-plastic necking.</p>
+          <h3>Finite element analysis (Abaqus)</h3>
+          <p>A sharp corner resolved in three chained 1,000-node submodels, thermo-plastic necking, and more from the course.</p>
           <span class="more">Read more &rarr;</span>
         </div>
       </a>
@@ -111,7 +134,7 @@
         <div class="tile-body">
           <p class="tile-meta">AUC Aquavaders &middot; Mechanical Team Lead</p>
           <h3>Underwater robot (ROV)</h3>
-          <p>Propulsion, buoyancy and structure for the MATE ROV competition.</p>
+          <p>Propulsion, buoyancy and structure for the MATE ROV competition. 4th place in 2025 and 2026.</p>
           <span class="more">Read more &rarr;</span>
         </div>
       </a>
@@ -121,7 +144,7 @@
         <div class="tile-body">
           <p class="tile-meta">MENG 4778 Mechatronics &middot; Fall 2026 <span class="badge">In progress</span></p>
           <h3>Force-feedback driving simulator</h3>
-          <p>A steering wheel with 2.5 Nm of force feedback. I machined its main frame.</p>
+          <p>I race in a sim league, so we're building a wheel that pushes back: 2.5 Nm of force feedback. I machined its main frame.</p>
           <span class="more">Read more &rarr;</span>
         </div>
       </a>
@@ -141,7 +164,7 @@
         <div class="tile-body">
           <p class="tile-meta">Personal &middot; Fusion 360 &middot; 2024</p>
           <h3>Formula 1 car</h3>
-          <p>Self-taught: 20 versions over 100+ hours.</p>
+          <p>Self-taught: 20 versions over 50+ hours.</p>
           <span class="more">Read more &rarr;</span>
         </div>
       </a>
@@ -166,29 +189,23 @@
         </div>
       </a>
 
-    </div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <div class="wrap about">
-    <div>
-      <p class="kicker">About</p>
-      <h2>A bit about me</h2>
-      <p>I'm Omar, a senior mechanical engineering student at AUC, graduating in May 2027, with a minor in economics.</p>
-      <p>Honestly, a lot of it started with cars. I wanted to know how an F1 car actually works, so I taught myself Fusion 360 and modeled one, and then, well, it needed an engine. That's pretty much how I still work: pick something I'm curious about and build it until I understand it.</p>
-      <p>These days most of my time goes into my thesis, a five-axis 3D printer, where I coordinate a team of five. A lot of that work is software, so I use AI agents a lot, and I treat them like a team too: clear tasks, written logs, and I check what they hand back before I trust it.</p>
-      <p>The economics side is the other half. I like asking whether a policy actually works, and I try not to put a number in front of anyone that I can't back up.</p>
-      <div class="interests">
-        <div class="interest"><b>F1 and sim racing</b><span>I race in a league with friends.</span></div>
-        <div class="interest"><b>Football</b><span>Premier League, Champions League, every tournament, and I play when I can.</span></div>
-        <div class="interest"><b>Aviation</b><span>A bit of a geek, which is why I modeled the GE90.</span></div>
-        <div class="interest"><b>Also</b><span>The gym, gaming and the occasional hike.</span></div>
+      <div class="tile tool reveal" data-cat="personal">
+        <div class="tile-body">
+          <p class="tile-meta">Personal tool &middot; built with AI</p>
+          <h3>Robot Academy</h3>
+          <p>A learning app for teaching myself robotics: <b>173 lessons</b> plus courses from MIT, Stanford and Brunton &amp; Kutz, with Python in the browser, auto-checked exercises and review cards.</p>
+        </div>
       </div>
-    </div>
-    <div class="photos">
-      <img src="img/f1.jpg" alt="Omar at an F1 show car in a Grand Prix fan zone" loading="lazy">
-      <img src="img/beach.jpg" alt="Omar on the rocks by the sea" loading="lazy">
+
+      <div class="tile tool reveal" data-cat="personal">
+        <div class="tile-body">
+          <p class="tile-meta">Personal tool &middot; Google Apps Script</p>
+          <h3>Daily planner</h3>
+          <p>Turns my Canvas deadlines into calendar events and tasks, and emails me a 7&nbsp;am summary of what is due and what is late.</p>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </section>
@@ -224,29 +241,6 @@
   </div>
 </section>
 
-<section id="how" class="section">
-  <div class="wrap">
-    <div class="section-head"><div><p class="kicker">Process</p><h2>How I work</h2></div></div>
-    <div class="cards2">
-      <article class="reveal">
-        <h3>Leading a team</h3>
-        <p>Every two weeks the thesis team hands in a log. I set the priorities, split the tasks and collect the updates. I automated the routine part: a script emails each teammate a reminder three days before and forwards their replies to me.</p>
-      </article>
-      <article class="reveal">
-        <h3>Working with AI agents</h3>
-        <p>I run several AI coding agents on one project with a shared task board. They claim tasks and log their results, and I review and test the work before anything is accepted.</p>
-      </article>
-      <article class="reveal">
-        <h3>Automating my week</h3>
-        <p>A Google Apps Script turns my Canvas deadlines into calendar events and tasks, and sends me a 7&nbsp;am summary of what is due and what is late.</p>
-      </article>
-      <article class="reveal">
-        <h3>Built to learn: Robot Academy</h3>
-        <p>A learning app I built with AI: <b>173 lessons</b> on robotics plus courses from MIT, Stanford and Brunton &amp; Kutz, with Python in the browser, auto-checked exercises and review cards.</p>
-      </article>
-    </div>
-  </div>
-</section>
 
 </main>
 

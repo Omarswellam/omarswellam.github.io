@@ -47,11 +47,12 @@
 </div>
 </div>
 <section class="p-body">
-<h2>The problem</h2>
-<p>A normal printer stacks flat layers. Anything that hangs out more than about 45&deg; has nothing under it, so the slicer adds support material that is printed and then thrown away. Flat layers are also weak in one direction: a part pulled across its layers breaks along them.</p>
-<p>A five-axis printer can tilt the part while it prints (our bed tilts up to 60&deg;), so the layers don't have to be flat. The hard part is the software: deciding how the layers should curve and making sure the nozzle never hits the part or the bed.</p>
+<h2>What it is</h2>
+<p>My senior thesis: a five-axis 3D printer, built by a team of five, and the slicer that drives it. A normal printer stacks flat layers. Anything that hangs out more than about 45&deg; has nothing under it, so the slicer adds support material that is printed and then thrown away. Flat layers are also weak in one direction: a part pulled across its layers breaks along them.</p>
+<p>A five-axis printer can tilt the part while it prints (our bed tilts up to 45&deg;), so the layers don't have to be flat. The hard part is the software: deciding how the layers should curve and making sure the nozzle never hits the part or the bed.</p>
+<figure><img src="../img/s5_print.webp" alt="Animation of the S5 printer&rsquo;s bed tilting while it prints a coil" loading="lazy"><figcaption>A coil (a small spring) printed in S5&rsquo;s Machine view: the bed tilts and moves on its three poles while the nozzle lays the curved layers. This is the slicer&rsquo;s simulation; the printer itself is not built yet.</figcaption></figure>
 
-<h2>What the slicer does</h2>
+<h2>What we built</h2>
 <p>Each part on the plate gets one of two modes:</p>
 <ul>
   <li><b>Low support:</b> the layers curve around the overhangs, so less of the part hangs over air.</li>
@@ -90,7 +91,8 @@
 </div></div>
 <p>On 8 strength test parts, the stress pulling across the layers (the direction prints break in) went down on 7, by up to 56%.</p>
 
-<h2>My role</h2>
+<h2>What I did</h2>
+<p>We split the thesis by who is most interested in, and best at, each part. Mine:</p>
 <ul>
   <li>Coordinate the team of five since September 2026: split the tasks, set the weekly priorities and keep the progress log.</li>
   <li>Built the slicer and the firmware kinematics. I worked with several AI coding agents on a shared task board: they claim tasks and log results, and I review and test their work before it is accepted.</li>
@@ -99,7 +101,7 @@
 </section>
 <nav class="next">
   <a href="cad.html">&larr; Previous<b>Personal CAD: F1 car, V10, GE90</b></a>
-  <a href="fem.html">Next &rarr;<b>Resolving a sharp corner in 1,000 nodes</b></a>
+  <a href="fem.html">Next &rarr;<b>Finite element analysis (Abaqus)</b></a>
 </nav>
 </main>
 

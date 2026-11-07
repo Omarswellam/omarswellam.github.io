@@ -32,10 +32,10 @@
 </section>
 <div class="cover contain"><img src="../img/pawl_mises.jpg" alt="Abaqus von Mises stress in a ratchet pawl"></div>
 <section class="p-body">
-<h2>The problem</h2>
-<p>The lab builds small linear actuators driven by shape memory alloys (SMA), wires that shorten when heated. A ratchet and pawl holds the position between strokes. Printed in resin, the pawl is small and brittle, so it has to be stiff enough to lock and strong enough not to crack. Changing one dimension changes both.</p>
+<h2>What it is</h2>
+<p>The research project builds small linear actuators driven by shape memory alloys (SMA), wires that shorten when heated. A ratchet and pawl holds the position between strokes. Printed in resin, the pawl is small and brittle, so it has to be stiff enough to lock and strong enough not to crack. Changing one dimension changes both.</p>
 
-<h2>The approach</h2>
+<h2>What we built: an automated design search</h2>
 <ul>
   <li><b>Geometry:</b> a curved pawl arm built from up to five arcs, plus the rack teeth. The variables are arm thickness, arc curvatures and lengths, end radius, root fillets, base size, tooth pitch (0.8&ndash;2.2 mm), tooth height and ramp angle.</li>
   <li><b>Each design:</b> a Python script builds it in Abaqus (grey resin, E = 2,800 MPa, 4 mm thick), meshes it within the 1,000-node limit, and simulates locking forward, reverse and travel.</li>
@@ -45,7 +45,9 @@
 
 <h2>Results</h2>
 <div class="kpis"><div><b>4,600+</b><span>designs simulated over six search runs</span></div><div><b>20</b><span>designs pass every check</span></div><div><b>2.22</b><span>safety factor of the best design</span></div><div><b>7 &times; 5 mm</b><span>size of the best design</span></div></div>
-<p>The first runs found nothing that passed. The spec was tight, and printed resin is weak. Shrinking the pawl and tightening the print tolerance to &plusmn;0.05 mm is what made 20 designs pass. The best one locks at all 8 worst-case print corners with a forward stress around 28 MPa.</p>
+
+<h2>What I did</h2>
+<p>I am a research assistant on the project. I wrote the Python pipeline that builds, meshes and checks each pawl design in Abaqus, set up the search, and ran it.</p>
 </section>
 <nav class="next">
   <a href="drone.html">&larr; Previous<b>Quadcopter modeling and control</b></a>
