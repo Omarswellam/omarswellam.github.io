@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omar Swellam</title>
+<meta name="description" content="Omar Swellam: mechanical engineering student at AUC. Five-axis 3D printing, FEA, controls, mechatronics and economics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Omar Swellam</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#economics">Economics</a>
+      <a href="#how">How I work</a>
+      <a class="btn small" href="Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <p class="eyebrow">Mechanical Engineering &middot; The American University in Cairo</p>
+      <h1>Omar Swellam</h1>
+      <p class="lead">Design &amp; Mechatronics, minor in Economics. I build machines, the software that runs them, and the teams that deliver them.</p>
+      <div class="cta">
+        <a class="btn" href="Omar_Swellam_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/omar-swellam" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/Omarswellam" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="mailto:Omar-swellam@aucegypt.edu">Email</a>
+      </div>
+      <ul class="stats">
+        <li><b>&minus;35%</b><span>support material on a 40-part benchmark (thesis)</span></li>
+        <li><b>3,000+</b><span>pawl designs tested automatically by FEA</span></li>
+        <li><b>5</b><span>teammates I coordinate on the senior thesis</span></li>
+      </ul>
+    </div>
+    <img class="headshot" src="img/headshot.jpg" alt="Portrait of Omar Swellam" width="640" height="800">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="wrap">
+    <h2>About me</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a senior mechanical engineering student at AUC (GPA 3.7, graduating May 2027). I like problems where engineering meets decisions. My thesis team is building a five-axis 3D printer that curves its layers to make parts stronger or need less support, and I coordinate that team of five.</p>
+        <p>I use AI agents every day: to write and test software, run simulations and produce reports. I treat them like a team: clear tasks, written logs, and I check everything they hand back before it counts.</p>
+        <h3>Outside work</h3>
+        <ul class="hobbies">
+          <li><b>F1 and sim racing</b> &mdash; I race in a league with friends.</li>
+          <li><b>Football</b> &mdash; Premier League, Champions League, and every international tournament; I play when I can.</li>
+          <li><b>Aviation</b> &mdash; a bit of a geek; it's why I modeled the GE90.</li>
+          <li><b>Also</b> &mdash; the gym, gaming and the occasional hike.</li>
+        </ul>
+      </div>
+      <div class="about-photos">
+        <figure><img src="img/f1.jpg" alt="Omar at the F1 show car in the Spanish Grand Prix fan zone" loading="lazy"><figcaption>Spanish Grand Prix fan zone</figcaption></figure>
+        <figure><img src="img/beach.jpg" alt="Omar on the rocks by the sea" loading="lazy"><figcaption>By the sea</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section alt">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div class="filters" role="tablist">
+      <button class="chip on" data-f="all">All</button>
+      <button class="chip" data-f="research">Thesis &amp; research</button>
+      <button class="chip" data-f="course">Course projects</button>
+      <button class="chip" data-f="personal">Personal CAD</button>
+    </div>
+
+    <div class="cards">
+
+      <article class="card wide" data-cat="research">
+        <div class="card-media">
+          <div class="compare" data-label-a="Flat layers" data-label-b="S5 curved layers">
+            <img src="img/s5_umbrella_flat.jpg" alt="Part sliced with normal flat layers">
+            <div class="compare-top"><img src="img/s5_umbrella_s5.jpg" alt="Same part sliced by S5 with curved layers"></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare flat and curved layers">
+            <span class="tag l">Flat</span><span class="tag r">S5</span>
+          </div>
+          <div class="thumbs">
+            <img src="img/s5_machine.jpg" alt="Five-axis printer CAD" loading="lazy">
+            <img src="img/s5_gimbal.jpg" alt="Tilting bed gimbal joint" loading="lazy">
+            <img src="img/s5_hook_flat.jpg" alt="Wall hook, flat layers" loading="lazy">
+            <img src="img/s5_hook_s5.jpg" alt="Wall hook, S5 strength layers" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="meta">Senior thesis &middot; 2026&ndash;2027 &middot; Thesis Coordinator, team of 5</p>
+          <h3>Five-axis 3D printer (S5)</h3>
+          <p class="impact">Support material &minus;35% and zero collisions on a 40-part benchmark</p>
+          <ul>
+            <li>Slicing software that curves print layers along a part's load paths (for strength) or around its overhangs (for less support), using FEA, collision checks and CuraEngine toolpaths.</li>
+            <li>Against normal flat slicing: support 32.1 &rarr; 21.0 g, none at all on 14 parts; overhang area needing support &minus;57%.</li>
+            <li>Strength mode: stress across the layers (the weak direction) cut on 7 of 8 test parts, by up to 56%.</li>
+            <li>Designed parts of the machine CAD, including the tilting bed's gimbal joint, and wrote the printer's custom five-axis firmware kinematics.</li>
+            <li>Used agentic AI to build a simplified mass-spring-damper model of the printer that tests its vibration in seconds; its loads feed FEA of the critical brackets.</li>
+          </ul>
+          <p class="note">Honest limit: curved-layer prints are about 3.4&times; slower than flat ones today (the bed keeps turning). That is the next thing to fix.</p>
+        </div>
+      </article>
+
+      <article class="card" data-cat="research">
+        <div class="card-media"><img src="img/pawl_mises.jpg" alt="Abaqus stress plot of a ratchet pawl" loading="lazy"></div>
+        <div class="card-body">
+          <p class="meta">Research Assistant, Micro Linear Actuators &middot; AUC &middot; 2026&ndash;</p>
+          <h3>Ratchet pawl design search</h3>
+          <p class="impact">3,000+ designs tested automatically, 20 pass every check</p>
+          <ul>
+            <li>A small 3D-printed resin pawl for actuators driven by shape memory alloys.</li>
+            <li>Automated Abaqus pipeline: generate the geometry, mesh, solve, check stress and locking, rank.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="course">
+        <div class="card-media textonly"><span>FEA</span></div>
+        <div class="card-body">
+          <p class="meta">MENG 4553 Finite Element Methods &middot; Fall 2026</p>
+          <h3>Notched shaft, from manufacturing to stress</h3>
+          <p class="impact">A full Abaqus pipeline within a 1,000-node license limit</p>
+          <ul>
+            <li>Final project: thermal and manufacturing effects, plasticity and damage, through to the final stress state at the notch.</li>
+            <li>Three-tier submodel chain to resolve a sharp notch; mesh convergence checked with ASME V&amp;V 10 Richardson extrapolation.</li>
+            <li>Python post-processing; AI-generated HTML result reports.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="course">
+        <div class="card-media"><img src="img/drone_traj.jpg" alt="Quadcopter 3D spiral trajectory, actual vs reference" loading="lazy"></div>
+        <div class="card-body">
+          <p class="meta">MENG 3705 System Dynamics &middot; Fall 2025 &middot; Project Coordinator, team of 5</p>
+          <h3>Quadcopter modeling and control</h3>
+          <p class="impact">Attitude settles in under 2 s</p>
+          <ul>
+            <li>Nonlinear 6-DOF model, linearized about hover, simulated in MATLAB/Simulink.</li>
+            <li>Cascaded PID (position outer loop, attitude inner loop) tracking a 3D spiral; sensitivity to thrust-to-weight and centre of gravity.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="course">
+        <div class="card-media"><img src="img/sim_cad.jpg" alt="CAD of the force-feedback steering wheel base" loading="lazy"></div>
+        <div class="card-body">
+          <p class="meta">MENG 4778 Microcontrollers &amp; Mechatronics &middot; Fall 2026 &middot; team of 5 &middot; <span class="pill">In progress</span></p>
+          <h3>Force-feedback driving simulator</h3>
+          <p class="impact">A steering wheel with at least 2.5 Nm of force feedback</p>
+          <ul>
+            <li>DC motor through a 5:1 belt drive, 600-pulse encoder, Arduino and motor driver; centering, damping and vibration effects over USB.</li>
+            <li>My part: CAM and CNC machining of the wheel's main frame; next, assembly and electronics.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="course">
+        <div class="card-media"><img src="img/launcher.jpg" alt="Printed tennis ball launcher assembly with electronics" loading="lazy"></div>
+        <div class="card-body">
+          <p class="meta">MENG 4779 Electromechanical Systems &middot; Spring 2026 &middot; Project Coordinator, team of 5</p>
+          <h3>Smart tennis ball launcher</h3>
+          <p class="impact">Designed, printed, wired and PLC-controlled</p>
+          <ul>
+            <li>Counter-rotating two-wheel launcher designed in SolidWorks and 3D printed.</li>
+            <li>PLC ladder logic (start/stop, timed auto-shutdown, ball counter) verified in RSLogix.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="research">
+        <div class="card-media textonly"><span>ROV</span></div>
+        <div class="card-body">
+          <p class="meta">AUC Aquavaders &middot; MATE ROV Competition &middot; Mechanical Team Lead since June 2026</p>
+          <h3>Underwater robot (ROV)</h3>
+          <p class="impact">Leading the mechanical team</p>
+          <ul>
+            <li>Propulsion, buoyancy and structural design; CAD, CFD and FEA.</li>
+            <li>Delegate tasks, manage timelines, and integrate with the software and electronics teams.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="personal">
+        <div class="card-media gallery">
+          <img src="img/f1car_side2.jpg" alt="F1 car render, side" loading="lazy">
+          <div class="thumbs">
+            <img src="img/f1car_front.jpg" alt="F1 car render, front" loading="lazy">
+            <img src="img/f1car_top.jpg" alt="F1 car render, top" loading="lazy">
+            <img src="img/f1car_nose.jpg" alt="F1 car nose and cockpit" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="meta">Personal &middot; Fusion 360 &middot; Jan&ndash;May 2024</p>
+          <h3>Formula 1 car</h3>
+          <p class="impact">20 versions over 100+ hours, self-taught</p>
+          <ul>
+            <li>Taught myself Fusion 360 to model an F1 car from scratch: diffusers, Venturi tunnels, multi-element wings and suspension.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="personal">
+        <div class="card-media gallery">
+          <img src="img/v10_car.jpg" alt="V10 engine with the F1 car" loading="lazy">
+          <div class="thumbs">
+            <img src="img/v10_block.jpg" alt="V10 engine pistons and gears" loading="lazy">
+            <img src="img/v10_mguk.jpg" alt="MGU-K motor" loading="lazy">
+            <img src="img/v10_top.jpg" alt="V10 engine from above" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="meta">Personal &middot; Fusion 360 &middot; Jul&ndash;Nov 2024</p>
+          <h3>F1 V10 hybrid engine</h3>
+          <p class="impact">1,000+ components, ~20,000 RPM, ~950 hp concept</p>
+          <ul>
+            <li>A naturally aspirated V10 with an MGU-K, as an answer to the 2026 rules; joints simulate the engine's motion.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="personal">
+        <div class="card-media gallery">
+          <img src="img/ge90_section.jpg" alt="GE90 engine section render" loading="lazy">
+          <div class="thumbs">
+            <img src="img/ge90_nacelle.jpg" alt="GE90 nacelle and fan" loading="lazy">
+            <img src="img/ge90_core.jpg" alt="GE90 core" loading="lazy">
+            <img src="img/ge90_cutaway.jpg" alt="GE90 cutaway" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="meta">Personal &middot; Fusion 360 &middot; Dec 2024&ndash;Jan 2025</p>
+          <h3>GE90 jet engine</h3>
+          <p class="impact">The Boeing 777's engine, modeled from fan to nozzle</p>
+          <ul>
+            <li>Multi-stage compressor and turbine, bypass ratio and combustor trade-offs.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMICS -->
+<section id="economics" class="section">
+  <div class="wrap">
+    <h2>Economics</h2>
+    <p class="sub">My minor: development and labor economics, with a focus on Egypt and the Middle East.</p>
+    <div class="econ">
+      <article>
+        <p class="meta">ECON 4051 final paper &middot; Spring 2026 &middot; solo</p>
+        <h3>Subsidies or cash transfers?</h3>
+        <p>Whether a mix of blanket subsidies and targeted cash beats either alone in middle-income MENA. Egypt's Takaful and Karama: beneficiaries consume about <b>8.4% more</b>, and <b>67%</b> are in the poorest two quintiles against a 60% target.</p>
+      </article>
+      <article>
+        <p class="meta">ECON 4051 policy brief &middot; team of 4</p>
+        <h3>The limits of subsidy reform in Morocco</h3>
+        <p>Cash transfers reached <b>2.3M children</b> and cut dropout by 1.3 pp (1.8 pp for girls), but poverty rose back to 4.9% and female labor participation is 19% vs 69% for men, a gap costing an estimated 7&ndash;12% of GDP.</p>
+      </article>
+      <article>
+        <p class="meta">Labor economics &middot; team of 4</p>
+        <h3>Vocational schools and youth unemployment in Egypt</h3>
+        <p>Why youth unemployment stays high as vocational schools expand. About <b>1.3M</b> young people enter the job market each year against about <b>500k</b> new jobs, and about 90% of employed youth work informally. Case study: WE Schools for Applied Technology.</p>
+      </article>
+      <article>
+        <p class="meta">Labor economics &middot; team of 2</p>
+        <h3>Brain drain: Egypt vs India</h3>
+        <p>Why skilled Egyptians leave (a job offer abroad 42.6%, low wages 20.6%) and what Egypt can learn from India, whose diaspora sends home about <b>US$135B</b> a year.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section id="how" class="section alt">
+  <div class="wrap">
+    <h2>How I work</h2>
+    <div class="how">
+      <article>
+        <h3>Leading a team</h3>
+        <p>Every two weeks the thesis team hands in a log. I set the priorities, split the tasks and collect the updates. I automated the routine part: a script emails each teammate a reminder three days before the log and forwards their replies to me.</p>
+      </article>
+      <article>
+        <h3>Working with AI agents</h3>
+        <p>I run several AI coding agents on one project with a shared task board. They claim tasks and log their results; I review and test the work before anything is accepted. It's how one student can build a slicer, firmware and test suite in a semester.</p>
+      </article>
+      <article>
+        <h3>Automating my week</h3>
+        <p>A Google Apps Script turns my Canvas deadlines into calendar events and tasks and sends me a 7&nbsp;am summary of what is due and what is late.</p>
+      </article>
+      <article>
+        <h3>Built to learn: Robot Academy</h3>
+        <p>A learning app I built with AI: <b>173 lessons</b> covering robotics plus courses from MIT, Stanford and Brunton &amp; Kutz, with Python running in the browser, auto-checked exercises and spaced-review cards.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p class="disclose">Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="script.js"></script>
+</body>
+</html>
