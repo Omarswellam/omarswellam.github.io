@@ -108,9 +108,10 @@ page("s5", "Senior thesis: a five-axis 3D printer and the slicer that curves its
       "A 3D printer whose bed tilts, and the software that curves each layer, so a part needs less support material or comes out stronger where it is pulled.",
       [("Role", "Thesis Coordinator"), ("Team", "5"), ("Tools", "Python, FEA, CuraEngine, RepRapFirmware")])}
 <div class="pairs">
-{ba("mushroom", "Mushroom cap", "Flat: the underside of the cap (red) hangs out past 45&deg; and needs about 2.2 g of support. S5: the layers follow the cap, the overhang area drops from 724 to 1 mm&sup2;, and no support is printed.")}
-{ba("capital", "Column capital", "Flat: the flared top needs support all round. S5: the overhang area drops from 452 to 0 mm&sup2;, so it prints with no support at all.")}
+{ba("mushroom", "Mushroom cap", "Flat: the cap hangs out over air, so everything in red has to be printed as support (about 2.2 g) and thrown away. S5: the layers bend up into the cap, so each layer sits on the one before it, the overhang area drops from 724 to 1 mm&sup2;, and no support is printed.")}
+{ba("capital", "Column capital", "Flat: the wide top hangs out past the column and needs support all round. S5: the top layers curve, the overhang area drops from 452 to 0 mm&sup2;, and it prints with no support at all.")}
 </div>
+<p class="note">How to read these: each picture is the part cut through the middle. The dark lines are every 10th layer, the way the nozzle builds it up from the bed (the grey bar). Red is support material.</p>
 <section class="p-body">
 <h2>What it is</h2>
 <p>My senior thesis: a five-axis 3D printer, built by a team of five, and the slicer that drives it. A normal printer stacks flat layers. Anything that hangs out more than about 45&deg; has nothing under it, so the slicer adds support material that is printed and then thrown away. Flat layers are also weak in one direction: a part pulled across its layers breaks along them.</p>
@@ -147,8 +148,8 @@ page("s5", "Senior thesis: a five-axis 3D printer and the slicer that curves its
 <p>Not every part improves. On a few (an umbrella, a shelf bracket) flat slicing still needs less support, and the 40-part totals above include them.</p>
 
 <h2>Results: strength</h2>
-<div class="pairs">{ba("hook", "Wall hook", "Flat layers (left) cross the hook's bend, its weakest point. In Strength mode (right) the layers follow the pull.")}</div>
-<p>On 8 strength test parts, the stress pulling across the layers (the direction prints break in) went down on 7, by up to 56%.</p>
+<div class="pairs">{ba("arm", "Angled support arm", "The base is bolted down and a weight hangs on the far end (orange arrow). Red is where the arm is pulled hard across its layers, the direction a print breaks in. Flat (left): the layers cut straight across the arm. S5 (right), same part, same way up: the layers curve along the arm, and the share of the pull that crosses the layers drops from 35% to 16%.")}</div>
+<p>On 8 strength test parts, the stress pulling across the layers went down on 7, by up to 56%. The single most-stressed spot improves less (about 8% on this arm), and these are simulations: the printer isn't built yet, so nothing has been break-tested.</p>
 
 <h2>What I did</h2>
 <p>We split the thesis by who is most interested in, and best at, each part. Mine:</p>

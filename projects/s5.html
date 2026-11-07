@@ -36,16 +36,17 @@
     <figure><img src="../img/s5_mushroom_flat.jpg" alt="Mushroom cap, flat layers" loading="lazy"><span class="tag l">Flat</span></figure>
     <figure><img src="../img/s5_mushroom_s5.jpg" alt="Mushroom cap, S5 curved layers" loading="lazy"><span class="tag l">S5</span></figure>
   </div>
-  <h3>Mushroom cap</h3><p>Flat: the underside of the cap (red) hangs out past 45&deg; and needs about 2.2 g of support. S5: the layers follow the cap, the overhang area drops from 724 to 1 mm&sup2;, and no support is printed.</p>
+  <h3>Mushroom cap</h3><p>Flat: the cap hangs out over air, so everything in red has to be printed as support (about 2.2 g) and thrown away. S5: the layers bend up into the cap, so each layer sits on the one before it, the overhang area drops from 724 to 1 mm&sup2;, and no support is printed.</p>
 </div>
 <div class="pair">
   <div class="ba">
     <figure><img src="../img/s5_capital_flat.jpg" alt="Column capital, flat layers" loading="lazy"><span class="tag l">Flat</span></figure>
     <figure><img src="../img/s5_capital_s5.jpg" alt="Column capital, S5 curved layers" loading="lazy"><span class="tag l">S5</span></figure>
   </div>
-  <h3>Column capital</h3><p>Flat: the flared top needs support all round. S5: the overhang area drops from 452 to 0 mm&sup2;, so it prints with no support at all.</p>
+  <h3>Column capital</h3><p>Flat: the wide top hangs out past the column and needs support all round. S5: the top layers curve, the overhang area drops from 452 to 0 mm&sup2;, and it prints with no support at all.</p>
 </div>
 </div>
+<p class="note">How to read these: each picture is the part cut through the middle. The dark lines are every 10th layer, the way the nozzle builds it up from the bed (the grey bar). Red is support material.</p>
 <section class="p-body">
 <h2>What it is</h2>
 <p>My senior thesis: a five-axis 3D printer, built by a team of five, and the slicer that drives it. A normal printer stacks flat layers. Anything that hangs out more than about 45&deg; has nothing under it, so the slicer adds support material that is printed and then thrown away. Flat layers are also weak in one direction: a part pulled across its layers breaks along them.</p>
@@ -84,12 +85,12 @@
 <h2>Results: strength</h2>
 <div class="pairs"><div class="pair">
   <div class="ba">
-    <figure><img src="../img/s5_hook_flat.jpg" alt="Wall hook, flat layers" loading="lazy"><span class="tag l">Flat</span></figure>
-    <figure><img src="../img/s5_hook_s5.jpg" alt="Wall hook, S5 curved layers" loading="lazy"><span class="tag l">S5</span></figure>
+    <figure><img src="../img/s5_arm_flat.jpg" alt="Angled support arm, flat layers" loading="lazy"><span class="tag l">Flat</span></figure>
+    <figure><img src="../img/s5_arm_s5.jpg" alt="Angled support arm, S5 curved layers" loading="lazy"><span class="tag l">S5</span></figure>
   </div>
-  <h3>Wall hook</h3><p>Flat layers (left) cross the hook's bend, its weakest point. In Strength mode (right) the layers follow the pull.</p>
+  <h3>Angled support arm</h3><p>The base is bolted down and a weight hangs on the far end (orange arrow). Red is where the arm is pulled hard across its layers, the direction a print breaks in. Flat (left): the layers cut straight across the arm. S5 (right), same part, same way up: the layers curve along the arm, and the share of the pull that crosses the layers drops from 35% to 16%.</p>
 </div></div>
-<p>On 8 strength test parts, the stress pulling across the layers (the direction prints break in) went down on 7, by up to 56%.</p>
+<p>On 8 strength test parts, the stress pulling across the layers went down on 7, by up to 56%. The single most-stressed spot improves less (about 8% on this arm), and these are simulations: the printer isn't built yet, so nothing has been break-tested.</p>
 
 <h2>What I did</h2>
 <p>We split the thesis by who is most interested in, and best at, each part. Mine:</p>
