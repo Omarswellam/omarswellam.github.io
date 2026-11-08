@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which gym to open? | Omar Swellam</title>
+<meta name="description" content="ENGR 3222 Engineering Economy: three ways to fit out a gym, compared over 10 years with an Excel financial model.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Omar Swellam</a>
+    <nav class="links" style="display:flex">
+      <a href="../index.html#projects">All projects</a>
+      <a class="btn small" href="../Omar_Swellam_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow">
+<a class="back" href="../index.html#projects">&larr; All projects</a>
+<section class="p-hero">
+  <p class="kicker">ENGR 3222 Engineering Economy &middot; Spring 2024</p>
+  <h1>Which gym to open?</h1>
+  <p class="lead">Three ways to fit out the same rented gym space, compared over 10 years. I built the Excel financial model behind it.</p>
+  <div class="facts"><span>Role <b>Financial model</b></span><span>Team <b>3</b></span><span>Tools <b>Excel</b></span></div>
+</section>
+<section class="p-body">
+<h2>What it is</h2>
+<p>The group project for ENGR 3222 Engineering Economy: take a real investment decision and work it through with the course's methods. We picked opening a gym. The rent, equipment and price figures came from listings, Egyptian sports suppliers and an interview with a gym owner.</p>
+<p>All three options rent the same space and pay the same for the interior. What changes is how the gym is equipped and run:</p>
+<ul>
+  <li><b>Free weights</b> (EGP 1.75M): the cheapest to set up, but it needs more staff.</li>
+  <li><b>A mid-range machine gym</b> (EGP 2.39M).</li>
+  <li><b>A full machine gym with private coaching</b> (EGP 3.03M): the most expensive, with the most income per year.</li>
+</ul>
+<figure><img src="../img/gym_cashflow.jpg" alt="The full machine gym as a cash flow: EGP 3.03M up front, about 1.40M a year for 10 years, and 0.51M back when the equipment is sold." loading="lazy"><figcaption>The full machine gym as a cash flow: EGP 3.03M up front, about 1.40M a year for 10 years, and 0.51M back when the equipment is sold.</figcaption></figure>
+
+<h2>Does each option pay off?</h2>
+<p>We needed at least a 23% return a year (the MARR) and checked each option six ways: present, annual and future worth, rate of return, payback and benefit/cost ratio. All three pass every test.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Option</th><th class="num">Investment (EGP)</th><th class="num">Present worth (EGP)</th><th class="num">Return</th><th class="num">Payback (years)</th><th class="num">B/C</th></tr></thead>
+  <tbody>
+    <tr><td>Free weights</td><td class="num">1.75M</td><td class="num">1.05M</td><td class="num">40.4%</td><td class="num">3.4</td><td class="num">1.07</td></tr>
+    <tr><td>Mid-range machines</td><td class="num">2.39M</td><td class="num">1.75M</td><td class="num">44.1%</td><td class="num">3.4</td><td class="num">1.14</td></tr>
+    <tr><td>Full machines + coaching</td><td class="num">3.03M</td><td class="num">2.36M</td><td class="num">45.4%</td><td class="num">3.3</td><td class="num">1.23</td></tr>
+  </tbody>
+</table></div>
+
+<h2>Is the extra money worth it?</h2>
+<p>When every option passes, the real question is whether each step up in cost earns its keep. Going from free weights to mid-range machines costs EGP 640,000 more and earns 54% a year on it. Going from mid-range to the full gym costs another 640,000 and earns 50%. Both beat 23%, so the full machine gym wins.</p>
+<figure><img src="../img/gym_incremental.jpg" alt="The incremental rate-of-return analysis: each extra EGP 640,000 earns well above the 23% minimum." loading="lazy"><figcaption>The incremental rate-of-return analysis: each extra EGP 640,000 earns well above the 23% minimum.</figcaption></figure>
+
+<h2>What could change the answer</h2>
+<p>We moved every input from &minus;100% to +100% and watched the present worth of the full gym. Membership fees dominate. Reading the chart, if membership income came in about 20% below plan, the gym would no longer earn its 23%. Rent and staff come next. The full gym and the mid-range gym are also close (45% against 44%), so the choice rests mostly on filling the memberships.</p>
+<figure><img src="../img/gym_sensitivity.jpg" alt="Sensitivity of the full machine gym's present worth to each input. Membership (the steep blue line) matters far more than anything else." loading="lazy"><figcaption>Sensitivity of the full machine gym's present worth to each input. Membership (the steep blue line) matters far more than anything else.</figcaption></figure>
+
+<h2>What I did</h2>
+<p>I built the Excel financial model: every revenue and cost line, year by year, for each option, and from it the present, annual and future worth, the rate of return, payback, benefit/cost, the incremental analysis and the sensitivity chart.</p>
+</section>
+<nav class="next">
+  <a href="cad.html">&larr; Previous<b>Personal CAD: F1 car, V10, GE90</b></a>
+  <a href="oil.html">Next &rarr;<b>Is oil really a curse?</b></a>
+</nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>&copy; 2026 Omar Swellam &middot; <a href="mailto:Omar-swellam@aucegypt.edu">Omar-swellam@aucegypt.edu</a></p>
+    <p>Built with the help of Claude (Anthropic). All projects and results are my own work.</p>
+  </div>
+</footer>
+
+<div class="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+<script src="../script.js"></script>
+</body>
+</html>

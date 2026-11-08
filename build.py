@@ -8,7 +8,7 @@ ROOT = Path(__file__).parent
 EMAIL = "Omar-swellam@aucegypt.edu"
 
 # order = the "previous / next" chain at the bottom of each page
-ORDER = ["s5", "fem", "drone", "pawl", "rov", "simulator", "launcher", "villa", "cad"]
+ORDER = ["s5", "fem", "drone", "pawl", "rov", "simulator", "launcher", "villa", "cad", "gym", "oil", "subsidies"]
 TITLES = {
     "s5": "Five-axis 3D printer (S5)",
     "fem": "Finite element analysis (Abaqus)",
@@ -18,6 +18,9 @@ TITLES = {
     "simulator": "Force-feedback driving simulator",
     "launcher": "Smart tennis ball launcher",
     "villa": "Villa restoration project plan",
+    "gym": "Which gym to open?",
+    "oil": "Is oil really a curse?",
+    "subsidies": "Subsidies or cash transfers?",
     "cad": "Personal CAD: F1 car, V10, GE90",
 }
 
@@ -365,6 +368,103 @@ page("villa", "MENG 3446 Project Management: the full project plan for restoring
 {fig("villa_gantt.jpg", "The Gantt chart: the four work packages and their tasks over the 58 days.")}
 {fig("villa_res.jpg", "Resource profiles: how many workers of each trade are needed each day (general workers, pool engineer, electricians, painters, gardeners, plumbers).")}
 {fig("villa_cost.jpg", "The cost profile: daily spending, in thousands. Most of the money goes out in the last two weeks, during finishing.")}
+</section>
+""")
+
+# ------------------------------------------------------------------ economics
+page("gym", "ENGR 3222 Engineering Economy: three ways to fit out a gym, compared over 10 years with an Excel financial model.", f"""
+{hero("ENGR 3222 Engineering Economy &middot; Spring 2024", TITLES["gym"],
+      "Three ways to fit out the same rented gym space, compared over 10 years. I built the Excel financial model behind it.",
+      [("Role", "Financial model"), ("Team", "3"), ("Tools", "Excel")])}
+<section class="p-body">
+<h2>What it is</h2>
+<p>The group project for ENGR 3222 Engineering Economy: take a real investment decision and work it through with the course's methods. We picked opening a gym. The rent, equipment and price figures came from listings, Egyptian sports suppliers and an interview with a gym owner.</p>
+<p>All three options rent the same space and pay the same for the interior. What changes is how the gym is equipped and run:</p>
+<ul>
+  <li><b>Free weights</b> (EGP 1.75M): the cheapest to set up, but it needs more staff.</li>
+  <li><b>A mid-range machine gym</b> (EGP 2.39M).</li>
+  <li><b>A full machine gym with private coaching</b> (EGP 3.03M): the most expensive, with the most income per year.</li>
+</ul>
+{fig("gym_cashflow.jpg", "The full machine gym as a cash flow: EGP 3.03M up front, about 1.40M a year for 10 years, and 0.51M back when the equipment is sold.")}
+
+<h2>Does each option pay off?</h2>
+<p>We needed at least a 23% return a year (the MARR) and checked each option six ways: present, annual and future worth, rate of return, payback and benefit/cost ratio. All three pass every test.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Option</th><th class="num">Investment (EGP)</th><th class="num">Present worth (EGP)</th><th class="num">Return</th><th class="num">Payback (years)</th><th class="num">B/C</th></tr></thead>
+  <tbody>
+    <tr><td>Free weights</td><td class="num">1.75M</td><td class="num">1.05M</td><td class="num">40.4%</td><td class="num">3.4</td><td class="num">1.07</td></tr>
+    <tr><td>Mid-range machines</td><td class="num">2.39M</td><td class="num">1.75M</td><td class="num">44.1%</td><td class="num">3.4</td><td class="num">1.14</td></tr>
+    <tr><td>Full machines + coaching</td><td class="num">3.03M</td><td class="num">2.36M</td><td class="num">45.4%</td><td class="num">3.3</td><td class="num">1.23</td></tr>
+  </tbody>
+</table></div>
+
+<h2>Is the extra money worth it?</h2>
+<p>When every option passes, the real question is whether each step up in cost earns its keep. Going from free weights to mid-range machines costs EGP 640,000 more and earns 54% a year on it. Going from mid-range to the full gym costs another 640,000 and earns 50%. Both beat 23%, so the full machine gym wins.</p>
+{fig("gym_incremental.jpg", "The incremental rate-of-return analysis: each extra EGP 640,000 earns well above the 23% minimum.")}
+
+<h2>What could change the answer</h2>
+<p>We moved every input from &minus;100% to +100% and watched the present worth of the full gym. Membership fees dominate. Reading the chart, if membership income came in about 20% below plan, the gym would no longer earn its 23%. Rent and staff come next. The full gym and the mid-range gym are also close (45% against 44%), so the choice rests mostly on filling the memberships.</p>
+{fig("gym_sensitivity.jpg", "Sensitivity of the full machine gym's present worth to each input. Membership (the steep blue line) matters far more than anything else.")}
+
+<h2>What I did</h2>
+<p>I built the Excel financial model: every revenue and cost line, year by year, for each option, and from it the present, annual and future worth, the rate of return, payback, benefit/cost, the incremental analysis and the sensitivity chart.</p>
+</section>
+""")
+
+page("oil", "ECON 4051 midterm paper: why oil wealth held back the Gulf's labor market while Norway diversified. Policy, not oil.", f"""
+{hero("ECON 4051 &middot; Spring 2026 &middot; midterm paper", TITLES["oil"],
+      "Norway produces about as much oil per person as Saudi Arabia and the UAE, yet it built a diversified economy. My argument: the Gulf's problem is policy, not oil.",
+      [("Type", "Solo paper"), ("Region", "The Gulf (GCC) and Norway"), ("Topic", "Youth jobs and oil wealth")])}
+<section class="p-body">
+<h2>The question</h2>
+<p>Oil money let the Gulf states build fast, but their private sectors stayed small and youth unemployment is rising. The usual explanation is that oil itself is a curse. If that were true, Norway should have the same problem, and it doesn't.</p>
+{fig("econ_oil.jpg", "Oil production per person, 2024: Norway sits between the UAE and Saudi Arabia. Source: Our World in Data (CC BY).")}
+
+<h2>Two theories, and where they fall short</h2>
+<ul>
+  <li><b>Dutch disease:</b> an oil boom raises the currency and wages, so other exports stop being competitive. But the theory assumes a fixed supply of workers, and the Gulf imports labor as it needs it, which keeps private wages down.</li>
+  <li><b>The rentier state:</b> a government that lives on oil rents, not taxes, buys loyalty with well-paid public jobs and subsidies. But that is a choice, not something oil forces: the same money could go into a sovereign wealth fund instead.</li>
+</ul>
+
+<h2>Policy, not oil</h2>
+<p>Norway put its oil revenue into the world's largest sovereign wealth fund and kept it out of the job market. The money pays for pensions and social security, wages stay grounded, and private jobs stay attractive. The Gulf passes its oil wealth on through public jobs, so young nationals wait for a government post instead of joining the private sector. With populations still growing fast, that model can't keep up.</p>
+
+<h2>What I propose</h2>
+<ul>
+  <li><b>Invest in high-tech industry</b> that is run for profit and hires on merit: it pays enough to compete with public jobs, and small national populations don't need labor-intensive industry.</li>
+  <li><b>Fix technical education</b> first, since the Gulf spends less on education than the global average: scholarships, labs and modern campuses.</li>
+  <li><b>Slow public hiring gradually</b> rather than cutting jobs, and move the savings into entrepreneurship programs and venture capital for young graduates.</li>
+</ul>
+</section>
+""")
+
+page("subsidies", "ECON 4051 final paper: blanket subsidies or targeted cash transfers in the Middle East, and a mixed, gradual reform path for Egypt.", f"""
+{hero("ECON 4051 &middot; Spring 2026 &middot; final paper", TITLES["subsidies"],
+      "Are targeted cash transfers always better than blanket subsidies? Not always. It depends on the country, and Egypt needs both.",
+      [("Type", "Solo paper"), ("Region", "Middle East and North Africa"), ("Case", "Egypt")])}
+<section class="p-body">
+<h2>The question</h2>
+<p>With high inflation and weak job markets, governments across the Middle East spend heavily on keeping households afloat. The traditional tool is a blanket subsidy on food and energy; the newer one is a cash transfer to households that qualify. The common view is that cash transfers are simply better. I argue it depends on the country.</p>
+
+<h2>Blanket subsidies: simple, but leaky</h2>
+<p>A subsidy needs no way of identifying who is poor, so it works in countries with weak administration and widespread poverty. Some goods even target themselves: Egypt's baladi bread is eaten mostly by poorer families, so most of that subsidy reaches them.</p>
+<p>Energy is the opposite. Richer households have bigger homes, more appliances and more cars, so they use more fuel and electricity and collect most of the subsidy. And a lower price makes everyone use more, which the government also pays for.</p>
+{fig("econ_subsidy_quantity.jpg", "A subsidy shifts supply to the right: the price falls from P to P&prime; and P&Prime;, and consumption rises from Q to Q&prime; and Q&Prime;.")}
+{fig("econ_subsidy_burden.jpg", "What it costs: blue is what the government pays on the original consumption; red is the extra it pays because the subsidy made people consume more.")}
+
+<h2>Cash transfers: better targeted, if the targeting works</h2>
+<p>Egypt's Takaful and Karama program picks households with a proxy means test: a regression model on assets, housing and household data, since many incomes are informal and hard to measure.</p>
+{kpis(("8.4%", "more consumption in households that receive it"), ("67%", "of beneficiaries in the poorest two-fifths of households"), ("60%", "the program's own target, which it beat"))}
+<p>It is not all positive: paying families to send children to school can lower learning when schools have no room for the extra pupils, and in high inflation the transfers lose value fast unless they are raised often.</p>
+
+<h2>What I recommend for Egypt</h2>
+<p>Keep both, and make each more efficient, gradually:</p>
+<ul>
+  <li><b>Fuel:</b> cut diesel subsidies first (mostly used by transport and business), and cut gasoline alongside incentives for electric cars.</li>
+  <li><b>Electricity:</b> reduce subsidies step by step while supporting rooftop solar, so demand on the grid falls.</li>
+  <li><b>Cash transfers:</b> better household data, and payments linked to a price index of what poor households actually buy.</li>
+  <li><b>Long term:</b> link some transfers to vocational training, technical education or girls' schooling.</li>
+</ul>
 </section>
 """)
 

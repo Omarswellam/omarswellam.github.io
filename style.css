@@ -149,7 +149,10 @@ p { margin: 0 0 1em; }
 
 /* list cards (econ, how) */
 .cards2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.cards2 article { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+.cards2 article, .cards2 .card-link { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+.cards2 .card-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.cards2 .card-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: transparent; }
+.cards2 .card-link .more { margin-top: auto; padding-top: 12px; font-size: .88rem; font-weight: 600; color: var(--accent); }
 .cards2 p { color: var(--muted); font-size: .95rem; margin: 0; }
 .cards2 b { color: var(--text); }
 .cards2 .tile-meta { margin-bottom: 8px; }
