@@ -8,7 +8,7 @@ ROOT = Path(__file__).parent
 EMAIL = "Omar-swellam@aucegypt.edu"
 
 # order = the "previous / next" chain at the bottom of each page
-ORDER = ["s5", "fem", "drone", "pawl", "rov", "simulator", "launcher", "cad"]
+ORDER = ["s5", "fem", "drone", "pawl", "rov", "simulator", "launcher", "villa", "cad"]
 TITLES = {
     "s5": "Five-axis 3D printer (S5)",
     "fem": "Finite element analysis (Abaqus)",
@@ -17,6 +17,7 @@ TITLES = {
     "rov": "Underwater robot (ROV)",
     "simulator": "Force-feedback driving simulator",
     "launcher": "Smart tennis ball launcher",
+    "villa": "Villa restoration project plan",
     "cad": "Personal CAD: F1 car, V10, GE90",
 }
 
@@ -341,6 +342,29 @@ page("launcher", "MENG 4779 Electromechanical Systems: a 3D-printed counter-rota
 
 <h2>What I did</h2>
 <p>We split the work by who was most interested in, and best at, each part. I was the project coordinator, did the CAD of the launcher, and wrote the PLC ladder logic.</p>
+</section>
+""")
+
+# ------------------------------------------------------------------ villa
+page("villa", "MENG 3446 Project Management: the full project plan for restoring an abandoned villa, its garden and a new pool.", f"""
+{hero("MENG 3446 Project Management &middot; Fall 2025", TITLES["villa"],
+      "A full project plan for restoring an abandoned villa: the scope, schedule, cost, risks and quality for a 300 m&sup2; house, a 2,000 m&sup2; garden and a new pool.",
+      [("Role", "Schedule, cost and resources"), ("Team", "5"), ("Tools", "MS Project, Excel")])}
+<section class="p-body">
+<h2>What it is</h2>
+<p>The group project for MENG 3446 Project Management: plan a real job from start to finish. Our group of five planned the restoration of an abandoned single-storey villa: renovate the 300 m&sup2; house, redo the 2,000 m&sup2; garden and build a 30 m&sup3; pool, within 9 million EGP and with no one hurt.</p>
+{kpis(("8.29M", "EGP baseline budget, under the 9M cap"), ("58", "working days in the baseline schedule"), ("16", "risks scored, each with a response"), ("4", "work packages: finishing, landscape, electrical, pool"))}
+
+<h2>What we built</h2>
+<p>The plan covers the whole project: the work breakdown, the schedule, the cost and resource plans, a risk register, a quality plan, and the procurement, communication and stakeholder plans.</p>
+{fig("villa_wbs.jpg", "The work breakdown structure: the job split into four work packages and their tasks.")}
+<p>The 16 risks were scored by likelihood and impact and each got a response: 5 eliminated, 3 reduced, 4 passed on (for example to suppliers), and 4 accepted with a contingency.</p>
+
+<h2>What I did</h2>
+<p>We split the work by who was most interested in, and best at, each part. I built the schedule, the cost plan and the resource plans: every task with its duration and predecessors in MS Project, then how many of each trade we need each day and how much is spent each day.</p>
+{fig("villa_gantt.jpg", "The Gantt chart: the four work packages and their tasks over the 58 days.")}
+{fig("villa_res.jpg", "Resource profiles: how many workers of each trade are needed each day (general workers, pool engineer, electricians, painters, gardeners, plumbers).")}
+{fig("villa_cost.jpg", "The cost profile: daily spending, in thousands. Most of the money goes out in the last two weeks, during finishing.")}
 </section>
 """)
 
